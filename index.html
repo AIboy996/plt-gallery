@@ -2,53 +2,58 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>plt-gallery</title>
-    <!-- py-script -->
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>plt-gallery</title>
+<!-- py-script -->
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<!-- bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+crossorigin="anonymous"></script>
 </head>
 
 <body>
 <div class="row">
-    <div class="col">
-        <pre>
-            <code class="language-python">
-            import numpy as np
-            import matplotlib.pyplot as plt
+<div class="col" style="margin-left: 5em;">
+<pre>
+<code class="language-python">
+import numpy as np
+import matplotlib.pyplot as plt
 
-            plt.plot(
-                x: iterable = <input value = "[1,2,3]" id='x' style="border:2px dashed lightblue;border-radius: 3px;padding: 1px;margin:1px;" oninput="this.size = this.value.length"></input>, 
-                y: iterable = <input value = "[1,4,9]" id='y' style="border:2px dashed lightblue;border-radius: 3px;padding: 1px;margin:1px;" oninput="this.size = this.value.length"></input>, 
-                **kwargs: dict = <input value = "{'color':'red', 'linestyle':'dotted'}" id='kwargs' style="border:2px dashed lightblue;border-radius: 3px;padding: 1px;margin:1px;" oninput="this.size = this.value.length"></input>
-            )
-            </code>
-        </pre>
-        <div>
-            <py-config>
-            packages = [
-            "matplotlib"
-            ]
-            [[fetch]]
-            files = ["./main.py"]
-            </py-config>
-            <py-script src="./main.py"></py-script>
-            <div style="text-align: center;">
-                <button class="btn btn-primary btn-lg" py-click="plot()">Plot</button>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div id="container"></div>
-    </div>
+plt.plot(
+    x: iterable = <input size="19" value = "np.arange(0,10,0.1)" id='x' style="border:2px dashed lightblue;border-radius: 3px;padding: 1px;margin:1px;" oninput="this.size = this.value.length"></input>, 
+    y: iterable = <input size="27" value = "np.sin(np.arange(0,10,0.1))" id='y' style="border:2px dashed lightblue;border-radius: 3px;padding: 1px;margin:1px;" oninput="this.size = this.value.length"></input>, 
+    **kwargs: dict = <input size="37" value = "{'color':'red', 'linestyle':'dotted'}" id='kwargs' style="border:2px dashed lightblue;border-radius: 3px;padding: 1px;margin:1px;" oninput="this.size = this.value.length"></input>
+)
+</code>
+</pre>
+<div>
+<py-config>
+packages = [
+"matplotlib"
+]
+[[fetch]]
+files = ["./main.py"]
+</py-config>
+<py-script src="./main.py"></py-script>
+<div style="text-align: center;">
+<button class="btn btn-primary btn-lg" py-click="plot()">Plot</button>
 </div>
+</div>
+</div>
+<div class="col">
+<div id="container"></div>
+</div>
+</div>
+<script type="text/javascript">
+console.log('asdsa')
+$(document).ready(function(){
+    $$('input').forEach((x)=>(x.size = x.value.length))
+})
+</script>
 </body>
-
 </html>
